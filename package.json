@@ -1,0 +1,37 @@
+{
+  "name": "text-fragment-scraper",
+  "version": "0.1.0",
+  "description": "Scrape highlighted text using text fragments",
+  "author": {
+    "name": "Soham Sen",
+    "email": "contact@sohamsen.me",
+    "url": "https://sohamsen.me"
+  },
+  "keywords": [
+    "url",
+    "scraper",
+    "text-fragment"
+  ],
+  "homepage": "https://github.com/Yureien/text-fragment-scraper",
+  "license": "MIT",
+  "main": "dist/index.js",
+  "types": "dist/index.d.js",
+  "files": [
+    "/dist"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "test": "mocha --reporter spec --require ts-node/register src/**/*.test.ts"
+  },
+  "dependencies": {
+    "puppeteer": "^15.4.0"
+  },
+  "devDependencies": {
+    "@types/chai": "^4.3.1",
+    "@types/mocha": "^9.1.1",
+    "chai": "^4.3.6",
+    "mocha": "^10.0.0",
+    "ts-node": "^10.9.1",
+    "typescript": "^4.7.4"
+  }
+}
