@@ -37,7 +37,7 @@ export class TextFragment {
         let textEnd = this.textEnd.replace(/([$^*()+\\|?./[\]])/g, '\\$1');
         if (textEnd) textEnd = `.*?${textEnd}`;
 
-        const regex: RegExp = new RegExp(
+        const regex = new RegExp(
             `${prefix} *(${textStart}${textEnd}) *${suffix}`,
             'gis'
         );
@@ -45,7 +45,7 @@ export class TextFragment {
         const match = body.matchAll(regex).next();
         if (match.value && match.value.length == 2) return (match.value[1] as string).trim();
     };
-};
+}
 
 /**
  * Extracts the percent-decoded text fragments from an URL
@@ -85,7 +85,7 @@ export const extractTextFragments = (url: URL | string): TextFragment[] => {
 export const scrapeURL = async (
     url: URL | string,
     pageWaitMs?: number,
-    waitTillRendered: boolean = false
+    waitTillRendered = false
 ): Promise<string[]> => {
     if (typeof (url) === "string")
         url = new URL(url);

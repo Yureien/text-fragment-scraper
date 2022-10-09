@@ -4,7 +4,7 @@ import { Page } from "puppeteer";
 const TEXT_CONTENT = "A-Za-z0-9%!#$'()*+/:;=?@[\\]-_.~"; // All allowed URL encoded characters EXCEPT & and ,
 // text=[prefix-,]textStart[,textEnd][,-suffix]
 export const TEXT_FRAGMENT_REGEX = new RegExp(
-    `&?text=([${TEXT_CONTENT}]*\-)?,?([${TEXT_CONTENT}]*),?([${TEXT_CONTENT}]*)?,?(\-[${TEXT_CONTENT}]*)?`,
+    `&?text=([${TEXT_CONTENT}]*-)?,?([${TEXT_CONTENT}]*),?([${TEXT_CONTENT}]*)?,?(-[${TEXT_CONTENT}]*)?`,
     'gi'
 );
 
@@ -19,8 +19,8 @@ export const waitTillHTMLRendered = async (page: Page) => {
     let countStableSizeIterations = 0;
 
     while (checkCounts++ <= maxChecks) {
-        let html = await page.content();
-        let currentHTMLSize = html.length;
+        const html = await page.content();
+        const currentHTMLSize = html.length;
 
         if (lastHTMLSize != 0 && currentHTMLSize == lastHTMLSize)
             countStableSizeIterations++;
