@@ -1,8 +1,7 @@
-import * as mocha from 'mocha';
-import * as chai from 'chai';
+require('mocha');
+import chai = require('chai');
 
 import {
-    TextFragment,
     extractTextFragments,
     scrapeURL,
 } from './scraper';
