@@ -41,4 +41,3 @@ jobs:
         run: yarn install
       - name: Run All Node.js Tests
         run: yarn test
-Footer
